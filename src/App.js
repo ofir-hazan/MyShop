@@ -1,8 +1,10 @@
+import './App.css'
 import cake from './assets/cake.jpg'
 import candy from './assets/candy.jpg'
 import chocolate from './assets/chocolate.jpg'
 import lollipops from './assets/lollipops.webp'
 import marshmallows from './assets/marshmallows.jpg'
+import Product from './components/Product'
 
 function App() {
 
@@ -24,9 +26,16 @@ function App() {
     },
   ];
 
+  const navToYoutube=()=>{
+    window.open('https://youtu.be/SRcnnId15BA');
+  }
+
   return (
     <div>
-      <h2>My Shop</h2>
+      <h2 className="app-name" onClick={navToYoutube}>My Shopping List</h2>
+      {products.map(item=>{
+         return <Product title={item.title} price={item.price} image={item.image}/>
+      })}
     </div>
   );
 }
